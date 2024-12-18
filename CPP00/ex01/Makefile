@@ -1,9 +1,10 @@
 # Binary
-BIN = megaphone
+BIN = phonebook
 
 # Compiler
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS =  -std=c++98 -g
+#-Wall -Wextra -Werror
 VG = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=leaks.log
 # --track-fds=all
 
@@ -24,7 +25,7 @@ OBJ_DIR = obj/
 
 
 # Find all .c files in src/ and its subdirectories
-SRC_FILES := $(shell find $(SRC_DIR) -name '*.c')
+SRC_FILES := $(shell find $(SRC_DIR) -name '*.cpp')
 
 # Create object file paths
 OBJ_FILES := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC_FILES))
@@ -39,7 +40,7 @@ COMPILED_FILES := $(shell if [ -d "$(OBJ_DIR)" ]; then find $(OBJ_DIR) -name "*.
 all: $(BIN)
 
 $(BIN): $(OBJ_FILES) | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(OBJ_FILES) -o $@
+	@$(CC) -I$(INC_DIR) $(CFLAGS) $(OBJ_FILES) -o $@
 	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%% $(RES)\r"
 	@echo "\n$(GRN)➾ [ ${BIN} ] created$(RES)"
 

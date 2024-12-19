@@ -28,6 +28,9 @@ class Contact
         void set_phoneNumber(const std::string &value);
         void set_darkest_Secret(const std::string &value);
 
+        // Methods
+        void displayContact();
+
         // Constructors
         // default
         Contact();

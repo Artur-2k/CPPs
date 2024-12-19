@@ -23,11 +23,13 @@ class PhoneBook
         // Setters
         void setIdx(const short &value);
 
+        // Methods
         // ADD
         void addContact(PhoneBook *pBook);
-        
         // SEARCH
-        void searchContact();
+        void searchContact(PhoneBook *pBook);
+        // Format
+        static std::string formatString(const std::string &content);
 };
 
 #endif

@@ -1,5 +1,9 @@
 #include "Contact.class.hpp"
 
+// Constructors
+// default
+Contact::Contact() : firstName(""), lastName(""), phoneNumber(""), darkest_Secret("") {}
+
 // Getters
 std::string Contact::get_firstName() const
 {
@@ -53,7 +57,18 @@ void Contact::set_darkest_Secret(const std::string &value)
     this->darkest_Secret = value;
 }
 
+// Methods
+void Contact::displayContact()
+{
+    if(this->darkest_Secret.empty())
+    {
+        std::cout << "NOTHING THERE" << std::endl;
+        return ;
+    }
 
-// Constructors
-// default
-Contact::Contact() : firstName(""), lastName(""), phoneNumber(""), darkest_Secret("") {}
+    std::cout << "FIRST NAME:" << this->firstName << std::endl;
+    std::cout << "LAST NAME: " << this->lastName << std::endl;
+    std::cout << "NICKNAME: " << this->nickname << std::endl;
+    std::cout << "PHONE: " << this->phoneNumber << std::endl;
+    std::cout << "DARKEST SECRET: " << this->darkest_Secret << std::endl;
+}

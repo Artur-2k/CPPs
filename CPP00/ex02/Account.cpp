@@ -1,5 +1,6 @@
 #include "Account.hpp"
 #include <iostream>
+#include <iomanip>
 #include <ctime>
 
 int Account::_nbAccounts = 0;
@@ -115,14 +116,15 @@ void	Account::_displayTimestamp( void )
     // struct tm .anos .mes .dia....
     std::tm* localTime = std::localtime(&currentTime);
     
+    std::cout << std::setfill('0');
     std::cout << "[" 
-    << localTime->tm_year + 1900
-    << localTime->tm_mon + 1
-    << localTime->tm_mday
+    << std::setw(4) << localTime->tm_year + 1900
+    << std::setw(2) << localTime->tm_mon + 1
+    << std::setw(2) << localTime->tm_mday
     << "_"
-    << localTime->tm_hour
-    << localTime->tm_min
-    << localTime->tm_sec
+    << std::setw(2) << localTime->tm_hour
+    << std::setw(2) << localTime->tm_min
+    << std::setw(2) << localTime->tm_sec
     <<"]";
 } 
 

@@ -53,7 +53,6 @@ $(OBJ_DIR):
 	@mkdir -p $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
 	@rm -f leaks.log
 	@rm -f leaks-old.log
 	@echo "${RED}➾ Cleaned the workspace${RES}"

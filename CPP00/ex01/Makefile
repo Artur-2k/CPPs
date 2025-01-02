@@ -3,7 +3,7 @@ BIN = phonebook
 
 # Compiler
 CC = c++
-CFLAGS =  -std=c++98 -g
+CFLAGS =  -std=c++98 -Wall -Wextra -Werror -g
 #-Wall -Wextra -Werror
 VG = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=leaks.log
 # --track-fds=all

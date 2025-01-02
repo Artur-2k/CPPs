@@ -18,6 +18,16 @@ void printIntro()
 
 }
 
+bool isAllPrintable(const std::string &input)
+{
+    size_t len = input.length();
+    for (size_t i = 0; i < len; i++)
+    {
+        if (!isprint(input[i]))
+            return false;
+    }
+    return true;
+}
 
 bool isAllDigits(const std::string &input)
 {
@@ -33,7 +43,6 @@ bool isAllDigits(const std::string &input)
 bool isAllSpaces(const std::string &input)
 {
     size_t len = input.length();
-    bool flag = false;
     for (size_t i = 0; i < len; i++)
     {
         if (!isspace(input[i]))
@@ -59,21 +68,30 @@ std::string readInput(const std::string &prompt)
     do
     {
         std::cout << prompt;
-        input.clear();
+
         getline(std::cin, input);
         if (std::cin.eof())
         {
             std::cout << "\nEOF GOODBYE!" << std::endl;
+            input.clear();
             exit(0);
+        }
+        if (!isAllPrintable(input))
+        {
+            std::cout << "CHOOSE BETTER CHARACTERS" << std::endl;
+            input.clear();
+            continue;
         }
         if (isAllSpaces(input))
         {
             std::cout << "YOU MUST WRITE SOMETHIG OTHER THAN SPACES" << std::endl;
+            input.clear();
             continue;
         }
         if (prompt == "PHONE NUMBER: " && (input.length() != 9 || !isAllDigits(input)))
         {
             std::cout << "PHONE NUMBER MUST CONTAIN 9 NUMBERS" << std::endl;
+            input.clear();
             continue;
         }
     } while (input.empty());

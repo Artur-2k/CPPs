@@ -54,7 +54,7 @@ void PhoneBook::addContact(PhoneBook *pBook)
 // Format (use setw and right justify next time)
 std::string PhoneBook::formatString(const std::string &content)
 {  
-    int maxSize = 10;
+    size_t maxSize = 10;
     // Truncates 9 and places a . on the 10th character or pads if needed
     if (content.length() > maxSize)
         return content.substr(0, maxSize - 1).insert(maxSize - 1, 1, '.');

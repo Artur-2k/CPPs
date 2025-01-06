@@ -25,13 +25,13 @@ OBJ_DIR = ./
 
 
 # Find all .c files in src/ and its subdirectories
-SRC_FILES := $(shell find $(SRC_DIR) -name '*.cpp')
+SRC_FILES := $(shell find $(SRC_DIR) -_name '*.cpp')
 
 # Create object file paths
 OBJ_FILES := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC_FILES))
 
 TOTAL_FILES := $(words $(SRC_FILES))
-COMPILED_FILES := $(shell if [ -d "$(OBJ_DIR)" ]; then find $(OBJ_DIR) -name "*.o" | wc -l; else echo 0; fi)
+COMPILED_FILES := $(shell if [ -d "$(OBJ_DIR)" ]; then find $(OBJ_DIR) -_name "*.o" | wc -l; else echo 0; fi)
 
 # Phony targets
 .PHONY: all clean fclean re
@@ -41,13 +41,13 @@ all: $(BIN)
 
 $(BIN): $(OBJ_FILES) | $(OBJ_DIR)
 	@$(CC) -I$(INC_DIR) $(CFLAGS) $(OBJ_FILES) -o $@
-	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%% $(RES)\r"
+	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -_name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%% $(RES)\r"
 	@echo "\n$(GRN)➾ [ ${BIN} ] created$(RES)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%%$(RES)\r"
+	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -_name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%%$(RES)\r"
 
 $(OBJ_DIR):
 	@mkdir -p $@

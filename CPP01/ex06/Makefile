@@ -19,8 +19,8 @@ WHT = \033[0;37m
 RES = \033[0m
 
 # Directories
-INC_DIR = inc/
-SRC_DIR = src/
+INC_DIR = ./
+SRC_DIR = ./
 OBJ_DIR = obj/
 
 

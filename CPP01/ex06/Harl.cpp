@@ -48,27 +48,6 @@ void Harl::complain (std::string level)
 	}
 }
 
-/** Unordered map is from c++11 	-.-
- * E não é possivel iniciar containers com {...} até o c++11
-#include <unordered_map>
-void Harl::complain (std::string level)
-{
-
-	std::unordered_map<std::string, void (Harl::*)(void)> type = {  {"DEBUG", Harl::debug},
-																	{"INFO", Harl::info},
-																	{"WARNING", Harl::warning},
-																	{"ERROR", Harl::error}     };
-	try
-	{
-		(this->*type.at(level))();
-	}
-	catch(const std::out_of_range& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
-*/
-
 int getLevelNum(std::string &level)
 {
 	if (level == "DEBUG") return DEBUG;

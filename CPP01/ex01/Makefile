@@ -18,8 +18,8 @@ WHT = \033[0;37m
 RES = \033[0m
 
 # Directories
-INC_DIR = inc/
-SRC_DIR = src/
+INC_DIR = ./
+SRC_DIR = ./
 OBJ_DIR = obj/
 
 
@@ -54,6 +54,7 @@ $(OBJ_DIR):
 clean:
 	@rm -f leaks.log
 	@rm -f leaks-old.log
+	@rm -rf $(OBJ_DIR)
 	@echo "${RED}➾ Cleaned the workspace${RES}"
 
 fclean: clean

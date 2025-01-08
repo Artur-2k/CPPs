@@ -25,25 +25,45 @@ void Harl::error( void )
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-
 void Harl::complain (std::string level)
 {
-
-	std::map<std::string, void (Harl::*)(void)> type;
-
-	type["DEBUG"] = &Harl::debug;
-	type["INFO"] = &Harl::info;
-	type["WARNING"] = &Harl::warning;
-	type["ERROR"] = &Harl::error;
-	try
+	std::string levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	void (Harl::*funptr[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+	
+	for (int i = 0; i < 4; i++)
 	{
-		(this->*type.at(level))();
+		if (levels[i] == level)
+		{
+			(this->*funptr[i])();
+			return ;
+		}	
 	}
-	catch(const std::out_of_range& e)
-	{
-		std::cerr << level << ": bad test"<< std::endl;
-	}
-}
+	std::cerr << level << ": bad test"<< std::endl;
+	return ;
+}	
+
+
+
+
+// Containers not allowed in general fuck sake xD
+// void Harl::complain (std::string level)
+// {
+
+// 	std::map<std::string, void (Harl::*)(void)> type;
+
+// 	type["DEBUG"] = &Harl::debug;
+// 	type["INFO"] = &Harl::info;
+// 	type["WARNING"] = &Harl::warning;
+// 	type["ERROR"] = &Harl::error;
+// 	try
+// 	{
+// 		(this->*type.at(level))();
+// 	}
+// 	catch(const std::out_of_range& e)
+// 	{
+// 		std::cerr << level << ": bad test"<< std::endl;
+// 	}
+// }
 
 /** Unordered map is from c++11 	-.-
  * E não é possivel iniciar containers com {...} até o c++11

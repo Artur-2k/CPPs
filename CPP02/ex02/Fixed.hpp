@@ -22,11 +22,11 @@ class Fixed
         int getRawBits( void ) const;
         void setRawBits( int const raw );
         Fixed &operator = (const Fixed &other);
-        Fixed &operator + (const Fixed &other){
-            Fixed ret (*this);
-            ret.value += other.getRawBits();
-            return ret;
-        }
+        Fixed operator + (const Fixed &other);
+        Fixed operator - (const Fixed &other);
+        Fixed operator * (const Fixed &other);
+        Fixed operator / (const Fixed &other);
+		// TODO <>!=== ++ ++ -- -- and min max
 };
 
 std::ostream &operator <<(std::ostream &so, const Fixed &fixedPoint);

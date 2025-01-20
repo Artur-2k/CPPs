@@ -60,6 +60,6 @@ void sed(char **av)
     std::string filename = av[1], s1 = av[2], s2 = av[3], content;
 
 	read_file_to_buffer(filename, content);
-	find_and_replace(filename, s1, s2);
+	find_and_replace(content, s1, s2);
 	write_to_file((filename + ".replace").c_str(), content);
 }

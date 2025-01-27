@@ -31,6 +31,8 @@ static std::string &read_file_to_buffer(std::string &filename, std::string &buff
 // look for s1 in content, erase it and insert at that position s2 (same as replace xd) and update the index
 static std::string &find_and_replace(std::string &buffer, std::string &find, std::string &replace)
 {
+    if(find.empty()) return buffer;
+
     size_t i = 0;
     while((i = buffer.find(find, i)) != std::string::npos)
     {

@@ -5,31 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/28 15:43:06 by artuda-s          #+#    #+#              #
-#    Updated: 2025/01/28 15:43:07 by artuda-s         ###   ########.fr        #
+#    Created: 2025/01/28 17:51:32 by artuda-s          #+#    #+#              #
+#    Updated: 2025/01/28 17:54:34 by artuda-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = main.cpp
-NAME = HI_THIS_IS_BRAIN
-OBJ = $(SRC:.cpp=.o)
+# Binary name
+NAME = give_me_a_name
 
+# Compiler
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+# Files
+SRC = main.cpp
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+OBJ_DIR = obj
+# Phony targets
+.PHONY: all clean fclean re
+
+# Rules
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+$(OBJ_DIR):
+	mkdir -p $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

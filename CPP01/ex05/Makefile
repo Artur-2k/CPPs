@@ -1,74 +1,45 @@
-# Binary
-BIN = Harl
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/28 17:51:32 by artuda-s          #+#    #+#              #
+#    Updated: 2025/01/28 17:55:36 by artuda-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Binary name
+NAME = give_me_a_name
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror -g
-#-Wall -Wextra -Werror
-VG = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=leaks.log
-# --track-fds=all
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Color variables
-RED = \033[0;31m
-GRN = \033[0;32m
-YEL = \033[0;33m
-BLU = \033[0;34m
-MAG = \033[0;35m
-CYN = \033[0;36m
-WHT = \033[0;37m
-RES = \033[0m
-
-# Directories
-INC_DIR = ./
-SRC_DIR = ./
-OBJ_DIR = obj/
-
-
-# Find all .c files in src/ and its subdirectories
-SRC_FILES := $(shell find $(SRC_DIR) -name '*.cpp')
-
-# Create object file paths
-OBJ_FILES := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC_FILES))
-
-TOTAL_FILES := $(words $(SRC_FILES))
-COMPILED_FILES := $(shell if [ -d "$(OBJ_DIR)" ]; then find $(OBJ_DIR) -name "*.o" | wc -l; else echo 0; fi)
-
+# Files
+SRC = Harl.cpp main.cpp
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+OBJ_DIR = obj
 # Phony targets
 .PHONY: all clean fclean re
 
 # Rules
-all: $(BIN)
+all: $(NAME)
 
-$(BIN): $(OBJ_FILES) | $(OBJ_DIR)
-	@$(CC) -I$(INC_DIR) $(CFLAGS) $(OBJ_FILES) -o $@
-	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%% $(RES)\r"
-	@echo "\n$(GRN)➾ [ ${BIN} ] created$(RES)"
+$(NAME): $(OBJ) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "$(GRN)➾ Compilation progress: $$(echo "$(shell find $(OBJ_DIR) -name "*.o" | wc -l) $(TOTAL_FILES)" | awk '{printf "%.2f", $$1/$$2 * 100}')%%$(RES)\r"
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJ_DIR):
-	@mkdir -p $@
+	mkdir -p $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@rm -f leaks.log
-	@rm -f leaks-old.log
-	@echo "${RED}➾ Cleaned the workspace${RES}"
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(BIN)
-	@echo "${RED}➾ Fully cleaned the workspace${RES}"
+	rm -f $(NAME)
 
 re: fclean all
-
-#Debugging
-leaks: all
-	@if [ -f leaks.log ]; then mv leaks.log leaks-old.log; fi
-	$(VG) ./$(BIN)
-
-san: all
-	@if [ -f leaks.log ]; then mv leaks.log leaks-old.log; fi
-	./$(BIN)

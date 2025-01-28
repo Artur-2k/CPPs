@@ -6,12 +6,11 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:17:23 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/28 15:17:30 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:36:43 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
+# pragma once
 
 # include "Fixed.hpp"
 
@@ -32,5 +31,3 @@ class Point
         
         Point& operator = ( const Point &other );
 };
-
-# endif

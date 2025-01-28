@@ -6,20 +6,20 @@
 #    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 10:55:03 by artuda-s          #+#    #+#              #
-#    Updated: 2025/01/28 10:55:30 by artuda-s         ###   ########.fr        #
+#    Updated: 2025/01/28 15:19:04 by artuda-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Binary name
-NAME = fixed02
+NAME = fixed03
 
 # Compiler
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

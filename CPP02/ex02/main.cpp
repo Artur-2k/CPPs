@@ -1,17 +1,49 @@
 #include "Fixed.hpp"
-int main( void ) {
-Fixed a;
-Fixed const b( 10 );
-Fixed const c( 42.42f );
-Fixed const d( b );
-a = Fixed( 1234.4321f );
-std::cout << "a is " << a << std::endl;
-std::cout << "b is " << b << std::endl;
-std::cout << "c is " << c << std::endl;
-std::cout << "d is " << d << std::endl;
-std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-return 0;
+
+// Macros for red, green, and reset colors
+# define RED    "\033[31m"
+# define GREEN  "\033[32m"
+# define RESET  "\033[0m"
+
+int main( void )
+{
+	Fixed a;
+	Fixed b(4.20f);
+	Fixed c(b);
+	Fixed d(69);
+	a = d;
+
+	//Constructors
+	std::cout << "Constructors" << std::endl;
+	std::cout << RED << "B(4.20f): " << GREEN  << b << RESET << std::endl;
+	std::cout << RED << "C(B): " << GREEN  << c << RESET << std::endl;
+	std::cout << RED << "D(69): " << GREEN  << d << RESET << std::endl;
+	std::cout << RED << "A=D: " << GREEN  << a << RESET << std::endl;
+
+	std::cout << "+ - * /" << std::endl;
+	std::cout << RED << "B + C: " << GREEN  << b + c << RESET << std::endl;
+	std::cout << RED << "B - C: " << GREEN  << b - c << RESET << std::endl;
+	std::cout << RED << "a * d: " << GREEN  << a * d << RESET << std::endl;
+	std::cout << RED << "a * d: " << GREEN  << b / c << RESET << std::endl;
+	
+	std::cout << "< <= >= != ==" << std::endl;
+	std::cout << RED << "a < d: " << GREEN  << (a < d) << RESET << std::endl;
+	std::cout << RED << "a <= d: " << GREEN  << (a <= d) << RESET << std::endl;
+	std::cout << RED << "b > c: " << GREEN  << (b > c) << RESET << std::endl;
+	std::cout << RED << "d >= b: " << GREEN  << (d >= b) << RESET << std::endl;
+	std::cout << RED << "a != c: " << GREEN  << (a != c) << RESET << std::endl;
+	std::cout << RED << "a == d: " << GREEN  << (a == d) << RESET << std::endl;
+
+	std::cout << "INCREMENT/DECREMENT OF RAWBITS" << std::endl;
+	std::cout << RED << "d: " << GREEN  << d.getRawBits() << RESET << std::endl;
+	std::cout << RED << "++d: " << GREEN  << (++d).getRawBits() << RESET << std::endl;
+	std::cout << RED << "d++: " << GREEN  << (d++).getRawBits() << RESET << std::endl;
+	std::cout << RED << "d: " << GREEN  << d.getRawBits() << RESET << std::endl;
+
+	std::cout << RED << "--d: " << GREEN  << (--d).getRawBits() << RESET << std::endl;
+	std::cout << RED << "d--: " << GREEN  << (d--).getRawBits() << RESET << std::endl;
+	std::cout << RED << "d: " << GREEN  << d.getRawBits() << RESET << std::endl;
+
+
+	return 0;
 }

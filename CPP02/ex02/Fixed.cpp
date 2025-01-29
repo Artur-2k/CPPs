@@ -65,7 +65,7 @@ Fixed Fixed::operator + (const Fixed &other)
 Fixed Fixed::operator - (const Fixed &other)
 {
 	Fixed ret (*this);
-	ret.value += other.getRawBits();
+	ret.value -= other.getRawBits();
 	return ret;
 }
 

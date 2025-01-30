@@ -25,7 +25,7 @@ static double TriangleArea(const Point &v1, const Point &v2, const Point &v3)
     double area = 1.0/2.0 * fabs(x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2));
     return area;
 }
-bool bsp(Point &v1, Point &v2, Point &v3, Point &p)
+bool bsp(const Point &v1, const Point &v2, const Point &v3, const Point &p)
 {
     // If the sum of the combination of every triangle with 
     // two vertices and the point is greater than the area of the 

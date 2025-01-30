@@ -15,16 +15,16 @@ int main( void )
 
 	//Constructors
 	std::cout << "Constructors" << std::endl;
-	std::cout << RED << "B(4.20f): " << GREEN  << b << RESET << std::endl;
-	std::cout << RED << "C(B): " << GREEN  << c << RESET << std::endl;
-	std::cout << RED << "D(69): " << GREEN  << d << RESET << std::endl;
-	std::cout << RED << "A=D: " << GREEN  << a << RESET << std::endl;
+	std::cout << RED << "b(4.20f): " << GREEN  << b << RESET << std::endl;
+	std::cout << RED << "c(B): " << GREEN  << c << RESET << std::endl;
+	std::cout << RED << "d(69): " << GREEN  << d << RESET << std::endl;
+	std::cout << RED << "a=d: " << GREEN  << a << RESET << std::endl;
 
 	std::cout << "+ - * /" << std::endl;
-	std::cout << RED << "B + C: " << GREEN  << b + c << RESET << std::endl;
-	std::cout << RED << "B - C: " << GREEN  << b - c << RESET << std::endl;
+	std::cout << RED << "b + c: " << GREEN  << b + c << RESET << std::endl;
+	std::cout << RED << "b - c: " << GREEN  << b - c << RESET << std::endl;
 	std::cout << RED << "a * d: " << GREEN  << a * d << RESET << std::endl;
-	std::cout << RED << "a * d: " << GREEN  << b / c << RESET << std::endl;
+	std::cout << RED << "b / c: " << GREEN  << b / c << RESET << std::endl;
 	
 	std::cout << "< <= >= != ==" << std::endl;
 	std::cout << RED << "a < d: " << GREEN  << (a < d) << RESET << std::endl;

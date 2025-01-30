@@ -27,7 +27,7 @@ enum levelType
 class Harl
 {
 	private:
-		std::map<std::string, void (Harl::*)(void)> type;
+		// std::map<std::string, void (Harl::*)(void)> type;
 
 		void debug( void );
 		void info( void );

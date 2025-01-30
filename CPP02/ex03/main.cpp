@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-bool bsp(Point &v1, Point &v2, Point &v3, Point &p);
+bool bsp(const Point &v1, const Point &v2, const Point &v3, const Point &p);
 
 int main()
 {

@@ -17,8 +17,8 @@
 class Point
 {
     private:
-        Fixed _x;
-        Fixed _y;
+        Fixed const _x;
+        Fixed const _y;
     public:
         Point( void );
         Point( int x, int y );

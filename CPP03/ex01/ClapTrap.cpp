@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:35:28 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/30 23:34:06 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:32:37 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ ClapTrap::ClapTrap() :  _name("unknown"),
                         _energyPoints(10),
                         _attackDamage(0) 
 {
-    std::cout << GREEN << "Constructor" << RESET << " called" << std::endl;
+    std::cout << GREEN << "ClapTrap Constructor" << RESET << " called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &other) 
 {
-    std::cout << GREEN << "Copy constructor" << RESET << " called" << std::endl;
+    std::cout << GREEN << "ClapTrap Copy constructor" << RESET << " called" << std::endl;
 
     *this = other;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << GREEN << "Parameter constructor" << RESET << " called" << std::endl;
+    std::cout << GREEN << "ClapTrap Parameter constructor" << RESET << " called" << std::endl;
 }
 
 
 ClapTrap::~ClapTrap() 
 {
-    std::cout << RED << "Destructor" << RESET << " called" << std::endl;
+    std::cout << RED << "ClapTrap Destructor" << RESET << " called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap &other)

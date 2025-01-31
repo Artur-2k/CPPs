@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:30:29 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/28 15:17:25 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:29:37 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ Point& Point::operator = ( const Point &other )
 {
     if (this != &other)
     {
-        this->_x = other._x;
-        this->_y = other._y;
+        std::cout << "stupid ass idea to make point coordinates const lol" << std::endl;
     }   
     return *this;
 }

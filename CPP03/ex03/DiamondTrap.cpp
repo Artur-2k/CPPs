@@ -79,3 +79,9 @@ void DiamondTrap::setName(const std::string &newName)
     this->_name = newName;
     ClapTrap::setName(newName);
 }
+
+void Diamond trap::whoAmI() const
+{
+    std::cout << "DiamondTrap name: " << _name << std::endl
+    std::cout << "ClapTrap name: << ClapTrap::_name << std::endl;
+}

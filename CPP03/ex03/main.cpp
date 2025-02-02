@@ -121,5 +121,19 @@ int main()
         std::cout << std::endl;
     }
 
+    {
+       std::cout << std::endl;
+
+        std::cin >> ch;
+
+        std::cout << "WHOAMI TESTER PZZZZZZ\n" << std::endl;
+
+       DiamondTrap funtester("Catarina");
+       funtester.whoAmI();
+       
+       funtester = DiamondTrap("Artur");
+       funtester.whoAmI();
+    }
+
     return 0;
 }

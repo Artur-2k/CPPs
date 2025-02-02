@@ -35,4 +35,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
         
         // Setter
         void setName(const std::string &newName);
+
+        void whoAmI();
 };

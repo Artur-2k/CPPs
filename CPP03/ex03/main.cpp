@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:56:31 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 23:09:31 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:22:25 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,9 +129,16 @@ int main()
         std::cout << "WHOAMI TESTER PZZZZZZ\n" << std::endl;
 
        DiamondTrap funtester("Catarina");
+
+       std::cout << "\nWHOAMI TESTER PZZZZZZ\n" << std::endl;
+
        funtester.whoAmI();
+
+        std::cout << std::endl;
        
        funtester = DiamondTrap("Artur");
+
+       std::cout << "\nWHOAMI TESTER PZZZZZZ\n" << std::endl;
        funtester.whoAmI();
     }
 

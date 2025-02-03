@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:37:13 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 23:08:37 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:25:02 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void DiamondTrap::setName(const std::string &newName)
     ClapTrap::setName(newName);
 }
 
-void Diamond trap::whoAmI() const
+void DiamondTrap::whoAmI() const
 {
-    std::cout << "DiamondTrap name: " << _name << std::endl
-    std::cout << "ClapTrap name: << ClapTrap::_name << std::endl;
+    std::cout << "DiamondTrap name: " << _name << std::endl;
+    std::cout << "ClapTrap name: " << ClapTrap::getName() << std::endl;
 }

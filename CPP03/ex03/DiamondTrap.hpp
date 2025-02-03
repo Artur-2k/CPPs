@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:37:11 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 23:06:44 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:58:14 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ class DiamondTrap : public ScavTrap, public FragTrap
         // Setter
         void setName(const std::string &newName);
 
-        void whoAmI();
+        void whoAmI() const;
 };

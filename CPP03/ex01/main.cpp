@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:35:12 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/03 10:51:15 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:18:19 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,12 @@ int main()
     scav2.guardGate();
     std::cout << std::endl;
 
+    std::cout << "now without energy: " << std::endl;
     scav2.setEnergyPoints(0);
     scav2.guardGate();
-    std::cout << std::endl;
+    std::cout << "Nothing done as expected, right?: " << std::endl;
         
+    std::cout << std::endl;
+
     return 0;
 }

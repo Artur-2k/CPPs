@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:34:56 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/03 10:55:45 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:19:01 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ ScavTrap& ScavTrap::operator= (ScavTrap &other)
         setHitPoints(other.getHitPoints());
     }
     return *this;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+    if (getEnergyPoints() <= 0 || getHitPoints() <= 0) return ;
+    std::cout << getName() << " attacked " << target << std::endl;
+    setEnergyPoints(getEnergyPoints() - 1);
+    return ;
 }
 
 void ScavTrap::guardGate()

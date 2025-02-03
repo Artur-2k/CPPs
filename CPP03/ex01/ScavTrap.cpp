@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:34:56 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 16:39:53 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:55:45 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ ScavTrap& ScavTrap::operator= (ScavTrap &other)
 
 void ScavTrap::guardGate()
 {
+    if (getEnergyPoints() <= 0 || getHitPoints() <= 0) return ;
     std::cout << getName() << " is in guard mode" << std::endl;
+    setEnergyPoints(getEnergyPoints() - 1);
+    return ;
 }

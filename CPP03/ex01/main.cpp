@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:35:12 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 16:38:09 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:51:15 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int main()
     std::cout << std::endl;
     scav3.attack("Miguelito");
     std::cout << std::endl;
+
+    scav2.guardGate();
+    std::cout << std::endl;
+
+    scav2.setEnergyPoints(0);
     scav2.guardGate();
     std::cout << std::endl;
         

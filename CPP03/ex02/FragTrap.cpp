@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:56:16 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/31 17:22:19 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:55:29 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ FragTrap& FragTrap::operator= (const FragTrap &other)
 
 void FragTrap::highFivesGuys(void)
 {
+    if (getEnergyPoints() <= 0 || getHitPoints() <= 0) return ;
+    
     std::cout << "Hi five me please I'm beg- NOO PLEASE DONT LEAVE..." << std::endl;
+    setEnergyPoints(getEnergyPoints() - 1);
+
+    return ;
 }

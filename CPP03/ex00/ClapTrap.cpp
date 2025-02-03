@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:44:14 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/01/29 22:44:15 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:52:23 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int ClapTrap::getEnergyPoints()
 // Action functions
 void ClapTrap::attack(const std::string &target)
 {
-    if (this->_energyPoints <= 0) return ;
+    if (getEnergyPoints() <= 0 || getHitPoints() <= 0) return ;
 
     std::cout << "ClapTrap " << UGREEN << _name << RESET
     << BLUE << " attacks " << RESET << target 
@@ -97,7 +97,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->_energyPoints <= 0) return ;
+    if (getEnergyPoints() <= 0 || getHitPoints() <= 0) return ;
 
     std::cout << "ClapTrap " << UGREEN << _name << RESET
     << YELLOW << " restored " << RESET << amount << RESET

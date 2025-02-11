@@ -1,13 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/11 11:31:38 by artuda-s          #+#    #+#              #
+#    Updated: 2025/02/11 11:31:39 by artuda-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 
 # Binary name
-NAME = 
+NAME = second
 
 # Compiler
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC =  
+SRC = Animal.cpp Brain.cpp Dog.cpp Cat.cpp main.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

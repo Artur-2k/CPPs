@@ -6,11 +6,12 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:12:52 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/11 11:22:03 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/11 11:36:04 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <string>
@@ -114,5 +115,7 @@ int main()
         for (int i = 0; i < 10; i++)
             delete array[i];   
     }
+
+    // AAnimal error; // this cannot be instanciated and will result in error
     return 0;
 }

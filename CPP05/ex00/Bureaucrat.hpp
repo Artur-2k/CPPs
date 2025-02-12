@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:23:33 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/12 22:31:17 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/12 22:37:46 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,18 @@ class Bureaucrat
         const std::string _name;
         int _grade;
     public:
-    Bureaucrat() : _name("unknown"), _grade(150) {};
-    Bureaucrat(const std::string &name, int grade) : _name(name) 
-    {
-        if (grade < 1) throw GradeTooHighException();
-        
-        if (grade > 150) throw GradeTooLowException();
-        
-        _grade = grade;
-    }
-    Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade) {}
-    ~Bureaucrat() {}
-    Bureaucrat operator=(const Bureaucrat &other) 
-    {
-        if (this != &other)
-        {
-            this->_grade = other._grade;
-        }
-        return *this;
-    }
+    Bureaucrat();
+    Bureaucrat(const std::string &name, int grade);
+    Bureaucrat(const Bureaucrat &other);
+    ~Bureaucrat();
+    Bureaucrat operator=(const Bureaucrat &other);
 
-    const std::string& getName() const 
-    {
-        return _name;
-    }
-     
-    int getGrade() const
-    {
-        return _grade;
-    } 
+    const std::string& getName() const;     
+    int getGrade() const;
 
-    void incrementGrade()
-    {
-        if (_grade == 1) throw GradeTooHighException();
-        _grade--;
-    }
+    void incrementGrade();    
+    void decrementGrade();
     
-    void decrementGrade()
-    {
-        if (_grade == 150) throw GradeTooLowException();
-        _grade++;
-    }
-
     class GradeTooHighException : public std::exception
     {
         public:
@@ -80,8 +50,4 @@ class Bureaucrat
     };
 };
 
-std::ostream& operator<<(std::ostream&os, const Bureaucrat &bureaucrat)
-{
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
-    return os;
-}
+std::ostream& operator<<(std::ostream&os, const Bureaucrat &bureaucrat);

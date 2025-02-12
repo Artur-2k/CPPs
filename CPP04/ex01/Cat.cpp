@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:17:06 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/11 10:58:54 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:00:16 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ Cat& Cat::operator= (const Cat &other)
     return *this;
 }
 
-
 void Cat::makeSound() const
 {
     std::cout << "Cat sounds" << std::endl;    
 }
 
+Brain *Cat::getBrain() const
+{
+    return (brain);
+}

@@ -6,12 +6,11 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:12:52 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/11 11:36:04 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:05:11 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <string>
@@ -34,9 +33,9 @@ int main()
     Dog wte;
     wte.getType();
     std::string idea = "Boots, boots, boots, boots";
-    wte.brain->append(idea, 0);
+    wte.getBrain()->append(idea, 0);
     std::cout << RED;
-    wte.brain->printIdea(0);
+    wte.getBrain()->printIdea(0);
     std::cout << RESET << std::endl;
     
 
@@ -44,17 +43,17 @@ int main()
 
     Dog etw(wte);
     idea = "Movin' up an' down again";
-    etw.brain->append(idea, 1);
-    etw.brain->printIdea(0);
-    etw.brain->printIdea(1);
+    etw.getBrain()->append(idea, 1);
+    etw.getBrain()->printIdea(0);
+    etw.getBrain()->printIdea(1);
     std::cout << RESET << std::endl;
 
     std::cout <<GREEN  << "Creation of foo and = etw" << RESET << std::endl;
     Dog foo;
     foo = etw;
     std::cout << RED;
-    foo.brain->printIdea(0);
-    foo.brain->printIdea(1);
+    foo.getBrain()->printIdea(0);
+    foo.getBrain()->printIdea(1);
     std::cout << RESET << std::endl;
     }
 
@@ -65,9 +64,9 @@ int main()
     Cat wte;
     std::cout << wte.getType() << std::endl;
     std::string idea = "Boots, boots, boots, boots, movin' up an' down again";
-    wte.brain->append(idea, 0);
+    wte.getBrain()->append(idea, 0);
     std::cout << RED;
-    wte.brain->printIdea(0);
+    wte.getBrain()->printIdea(0);
     std::cout << RESET << std::endl;
     
 
@@ -75,18 +74,18 @@ int main()
 
     Cat etw(wte);
     idea = "Men, men, men, men, men go mad with watchin' em,";
-    etw.brain->append(idea, 1);
+    etw.getBrain()->append(idea, 1);
     std::cout << RED;
-    etw.brain->printIdea(0);
-    etw.brain->printIdea(1);
+    etw.getBrain()->printIdea(0);
+    etw.getBrain()->printIdea(1);
     std::cout << RESET << std::endl;
 
     std::cout <<GREEN  << "Creation of foo and = etw" << RESET << std::endl;
     Cat foo;
     foo = etw;
     std::cout << RED;
-    foo.brain->printIdea(0);
-    foo.brain->printIdea(1);
+    foo.getBrain()->printIdea(0);
+    foo.getBrain()->printIdea(1);
     std::cout << RESET << std::endl;
     }
 
@@ -116,6 +115,7 @@ int main()
             delete array[i];   
     }
 
+    Animal valid;
     // AAnimal error; // this cannot be instanciated and will result in error
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:41 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/11 10:59:06 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:59:58 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,7 @@ void Dog::makeSound() const
     std::cout << "Dog sounds" << std::endl;    
 }
 
+Brain *Dog::getBrain() const
+{
+    return (brain);
+}

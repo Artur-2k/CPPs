@@ -1,14 +1,24 @@
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fang <fang@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/12 22:26:46 by fang              #+#    #+#              #
+#    Updated: 2025/02/12 22:26:57 by fang             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 # Binary name
-NAME = 
+NAME = first
 
 # Compiler
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = 
+SRC = main.cpp Bureaucrat.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

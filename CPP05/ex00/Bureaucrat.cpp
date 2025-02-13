@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:35 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/12 22:38:01 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/13 10:59:01 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 Bureaucrat::~Bureaucrat() {}
 
 ///////////////////////////////////////////////////////////////
-Bureaucrat Bureaucrat::operator=(const Bureaucrat &other) 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other) 
 {
     if (this != &other)
     {

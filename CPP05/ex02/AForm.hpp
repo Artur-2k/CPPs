@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:45 by fang              #+#    #+#             */
-/*   Updated: 2025/02/13 20:38:45 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/14 21:00:42 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,18 @@ class AForm
         void setIsSigned(bool value);
 
         void beSigned(const Bureaucrat &bureaucrat);
-        virtual void beExecuted(const Bureaucrat &bureaucrat) = 0;
+        virtual void execute(const Bureaucrat &executer) = 0;
+
+
+
+        class IsntSigned : public std::exception
+        {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return "From is Must Signed to Execute";        
+                }
+        };
 
         class AlreadySigned : public std::exception
         {

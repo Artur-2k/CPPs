@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:29 by fang              #+#    #+#             */
-/*   Updated: 2025/02/13 20:40:08 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/14 18:01:35 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-void Bureaucrat::signForm(AForm &form)
+void Bureaucrat::signForm(AForm &form) const
 {
     form.beSigned(*this);
     std::cout << _name << " signed " << form.getName() << std::endl;

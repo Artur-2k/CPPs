@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:36 by fang              #+#    #+#             */
-/*   Updated: 2025/02/13 20:39:06 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/14 18:01:30 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
     void decrementGrade();
     
 
-    void signForm(AForm &form);
+    void signForm(AForm &form) const;
     
     class GradeTooHighException : public std::exception
     {

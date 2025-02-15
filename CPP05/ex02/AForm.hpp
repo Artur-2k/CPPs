@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:45 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:16:42 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:30:57 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class AForm
         void setIsSigned(bool value);
 
         void beSigned(const Bureaucrat &bureaucrat);
-        virtual void execute(const Bureaucrat &executer) = 0;
+        virtual void execute(const Bureaucrat &executer) const = 0;
 
 
 

@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:19:10 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:32:23 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
     
     try {
         b.signForm(SCForm);
-        SCForm.execute(b);
+        b.executeForm(SCForm);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -66,7 +66,7 @@ std::cout << BLUE "//////////////////////////////////////////" RESET << std::end
     
     try {
         b.signForm(SCForm);
-        SCForm.execute(b);
+        b.executeForm(SCForm);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -90,7 +90,7 @@ std::cout << BLUE "//////////////////////////////////////////" RESET << std::end
     
     try {
         b.signForm(SCForm);
-        SCForm.execute(b);
+        b.executeForm(SCForm);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;
     }

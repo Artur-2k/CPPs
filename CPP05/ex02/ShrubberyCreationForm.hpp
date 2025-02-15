@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:42:55 by fang              #+#    #+#             */
-/*   Updated: 2025/02/14 21:33:36 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:30:46 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(const std::string &target);
         std::string getTarget() const;
         
-        void execute(const Bureaucrat &executer);
+        void execute(const Bureaucrat &executer) const;
 };
 
 std::ostream& operator<< (std::ostream &os, const ShrubberyCreationForm &SCF);

@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:41 by fang              #+#    #+#             */
-/*   Updated: 2025/02/13 20:38:09 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:39:19 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,25 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
     if (_isSigned)
         throw AlreadySigned();
     setIsSigned(true);
+}
+
+const char* AForm::IsntSigned::what() const throw()
+{
+    return "From Must be Signed to Execute";        
+}
+
+const char* AForm::AlreadySigned::what() const throw()
+{
+    return "From is Already Signed";        
+}
+const char* AForm::GradeTooLowException::what() const throw()
+{
+    return "Grade is Too Low";        
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+    return "Grade is Too High";        
 }
 
 std::ostream& operator<< (std::ostream& os, const AForm &form)

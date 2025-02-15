@@ -6,11 +6,13 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:42:34 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 17:05:08 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 22:59:40 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RRForm", 72, 45) , _target("no target lol") {}
 
@@ -40,7 +42,13 @@ void RobotomyRequestForm::execute(const Bureaucrat &executer) const
     
     if (executer.getGrade() > getExecGrade()) throw GradeTooLowException();
 
-    // TODO actual robotomize learn random i guess
+    std::srand(std::time(0));
+    
+    std::cout << "Drilling noises..." << std::endl;
+    if (rand() % 2 == 0)
+        std::cout << _target << " was robotomized."  << std::endl;
+    else
+        std::cout << _target << " was not robotomized."  << std::endl;
 }
 
 std::ostream& operator<< (std::ostream& os, const RobotomyRequestForm &RRForm)
@@ -52,3 +60,4 @@ std::ostream& operator<< (std::ostream& os, const RobotomyRequestForm &RRForm)
     << "Execution Grade: " << RRForm.getExecGrade() << std::endl;
     return os;
 }
+

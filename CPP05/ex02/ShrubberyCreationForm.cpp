@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:48:14 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:33:02 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 17:03:27 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ std::ostream& operator<< (std::ostream &os, const ShrubberyCreationForm &SCF)
     << "Is signed: " << (SCF.getIsSigned() ? "Yes" : "No") << "\n"
     << "Sign Grade: " << SCF.getSignGrade() << "\n"
     << "Execution Grade: " << SCF.getExecGrade() << std::endl;
-return os;
+    return os;
 }

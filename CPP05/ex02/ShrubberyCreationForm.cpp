@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:48:14 by fang              #+#    #+#             */
-/*   Updated: 2025/02/14 21:33:27 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:15:21 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ std::string ShrubberyCreationForm::getTarget() const{ return _target; }
 void ShrubberyCreationForm::execute(const Bureaucrat &executer)
 {
     // If sign grade not enough throws a grade exception
-    if (!getIsSigned()) 
-        executer.signForm(*this);
+    if (!getIsSigned()) throw IsntSigned();
         
     if (executer.getGrade() > getExecGrade()) throw GradeTooLowException();
 

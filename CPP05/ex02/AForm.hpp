@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:45 by fang              #+#    #+#             */
-/*   Updated: 2025/02/14 21:00:42 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:16:42 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class AForm
             public:
                 virtual const char* what() const throw()
                 {
-                    return "From is Must Signed to Execute";        
+                    return "From Must be Signed to Execute";        
                 }
         };
 

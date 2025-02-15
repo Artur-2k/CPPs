@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/14 21:55:37 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:19:10 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main()
     std::cout << std::endl;
     
     try {
+        b.signForm(SCForm);
         SCForm.execute(b);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;
@@ -53,17 +54,18 @@ std::cin >> ch;
 std::cout << CLEAR_SCREEN;
 std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
     std::cout << RED "Invalid ShrubberyCreationForm execution" RESET << std::endl;
-    std::cout << RED "Burucrat with grade 150 (S:145 & E:137)" RESET << std::endl;
+    std::cout << RED "Burucrat with grade 140 (S:145 & E:137)" RESET << std::endl;
     std::cout << std::endl;
 
 {
-    Bureaucrat b("Duck n2", 150);
+    Bureaucrat b("Duck n2", 140);
     ShrubberyCreationForm SCForm("Duck2's Target");
     std::cout << SCForm;
     std::cout << std::endl;
 
     
     try {
+        b.signForm(SCForm);
         SCForm.execute(b);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;
@@ -87,6 +89,7 @@ std::cout << BLUE "//////////////////////////////////////////" RESET << std::end
 
     
     try {
+        b.signForm(SCForm);
         SCForm.execute(b);
     }catch(const std::exception& e){
         std::cout << "Error: " << e.what() << std::endl;

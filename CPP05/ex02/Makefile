@@ -6,7 +6,7 @@
 #    By: fang <fang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 20:25:54 by fang              #+#    #+#              #
-#    Updated: 2025/02/15 16:21:55 by fang             ###   ########.fr        #
+#    Updated: 2025/02/15 23:02:55 by fang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC += main.cpp 
+SRC += Bureaucrat.cpp
+SRC += AForm.cpp
+SRC += ShrubberyCreationForm.cpp
+SRC += RobotomyRequestForm.cpp
+SRC += PresidentialPardonForm.cpp
+
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

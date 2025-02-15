@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:32:23 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 23:02:01 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 #define RESET   "\033[0m"
 #define CLEAR_SCREEN "\033[2J\033[1;1H"
 
+/* TODO
+ * Add a hpp file with colors for print
+*/
+/* TODO
+ * make an array and clean this fucking huge main function
+*/
+/* TODO
+ * test robotomy and shruberry
+*/
 
 int main()
 { 

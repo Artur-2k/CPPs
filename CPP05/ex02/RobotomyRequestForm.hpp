@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:42:37 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:51:55 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/15 16:54:02 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class RobotomyRequestForm : public AForm
 {
     private:
-        std::string target;
+        std::string _target;
         
     public: 
         RobotomyRequestForm();

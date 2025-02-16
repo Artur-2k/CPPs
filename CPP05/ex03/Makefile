@@ -6,7 +6,7 @@
 #    By: fang <fang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 20:25:54 by fang              #+#    #+#              #
-#    Updated: 2025/02/16 14:05:49 by fang             ###   ########.fr        #
+#    Updated: 2025/02/16 16:15:53 by fang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC += AForm.cpp
 SRC += ShrubberyCreationForm.cpp
 SRC += RobotomyRequestForm.cpp
 SRC += PresidentialPardonForm.cpp
+SRC += Intern.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj

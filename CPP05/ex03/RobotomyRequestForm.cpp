@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:42:34 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 22:59:40 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 16:33:51 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executer) const
     
     std::cout << "Drilling noises..." << std::endl;
     if (rand() % 2 == 0)
-        std::cout << _target << " was robotomized."  << std::endl;
+    std::cout << _target << " was robotomized."  << std::endl;
     else
         std::cout << _target << " was not robotomized."  << std::endl;
 }

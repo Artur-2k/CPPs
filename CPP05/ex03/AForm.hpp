@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:45 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 16:39:13 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 16:16:13 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AForm
         AForm();
         AForm(const AForm &other);
         AForm(const std::string name, const int signGrade, const int execGrade);
-        ~AForm();
+        virtual ~AForm();
         AForm& operator= (const AForm &other);
 
         const std::string& getName() const;

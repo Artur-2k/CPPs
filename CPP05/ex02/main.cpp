@@ -6,13 +6,14 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/16 13:58:11 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 14:01:24 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 #define RED     "\033[31m"
@@ -86,6 +87,22 @@ int main()
         Bureaucrat b("Duck n3", 50);
         RobotomyRequestForm f("Duck3's Target");
         testForm(b, f, RED "Invalid RobotomyRequestForm execution\nBurucrat with grade 50 (S:72 & E:45)" RESET);
+    }
+      // PARDON TEST 
+   {
+        Bureaucrat b("Duck n1", 1);
+        PresidentialPardonForm f("Duck1's Target");
+        testForm(b, f, GREEN "Valid PresidentialPardonForm execution\nBurucrat with grade 1 (S:25 & E:5)" RESET);
+    }
+    {
+        Bureaucrat b("Duck n2", 150);
+        PresidentialPardonForm f("Duck2's Target");
+        testForm(b, f, RED "Invalid PresidentialPardonForm sign\nBurucrat with grade 150 (S:25 & E:5)" RESET);
+    }
+    {
+        Bureaucrat b("Duck n3", 7);
+        PresidentialPardonForm f("Duck3's Target");
+        testForm(b, f, RED "Invalid PresidentialPardonForm execution\nBurucrat with grade 7 (S:25 & E:5)" RESET);
     }
     return 0;
 }

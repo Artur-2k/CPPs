@@ -6,14 +6,14 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 22:29:37 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 22:58:34 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 14:02:45 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 // Default Constructor
-PresidentialPardonForm::PresidentialPardonForm() : AForm("unknown", 25, 5), _target("unkown") {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PPForm", 25, 5), _target("unkown") {}
 
 // Copy Constructor
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), _target(other._target) {}
@@ -33,7 +33,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // Param Constructor
-PresidentialPardonForm::PresidentialPardonForm (const std::string &target) : AForm("unknown", 25, 5), _target(target) {}
+PresidentialPardonForm::PresidentialPardonForm (const std::string &target) : AForm("PPForm", 25, 5), _target(target) {}
 
 void PresidentialPardonForm::execute(const Bureaucrat &executer) const
 {

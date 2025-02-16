@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 22:29:37 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 22:57:26 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 14:00:05 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
     // Setter
     void setTarget(std::string value);
     
-    virtual void execute(const Bureaucrat &executer) const = 0;
+    void execute(const Bureaucrat &executer) const;
 
 };
 

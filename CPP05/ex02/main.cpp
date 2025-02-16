@@ -6,12 +6,13 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/16 13:51:02 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 13:58:11 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
 #define RED     "\033[31m"
@@ -27,9 +28,6 @@
 /* TODO
  * test robotomy and shruberry
 */
-
-
-
 
 void testForm(Bureaucrat &b, AForm &f, const std::string& description) {
     std::cout << CLEAR_SCREEN;
@@ -73,6 +71,21 @@ int main()
         testForm(b, f, RED "Invalid ShrubberyCreationForm execution\nBurucrat with grade 140 (S:145 & E:137)" RESET);
     }
  
-
+   // ROBOTOMY TEST 
+   {
+        Bureaucrat b("Duck n1", 10);
+        RobotomyRequestForm f("Duck1's Target");
+        testForm(b, f, GREEN "Valid RobotomyRequestForm execution\nBurucrat with grade 10 (S:72 & E:45)" RESET);
+    }
+    {
+        Bureaucrat b("Duck n2", 150);
+        RobotomyRequestForm f("Duck2's Target");
+        testForm(b, f, RED "Invalid RobotomyRequestForm sign\nBurucrat with grade 150 (S:72 & E:45)" RESET);
+    }
+    {
+        Bureaucrat b("Duck n3", 50);
+        RobotomyRequestForm f("Duck3's Target");
+        testForm(b, f, RED "Invalid RobotomyRequestForm execution\nBurucrat with grade 50 (S:72 & E:45)" RESET);
+    }
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/15 23:02:01 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 13:51:02 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,87 +25,54 @@
 #define CLEAR_SCREEN "\033[2J\033[1;1H"
 
 /* TODO
- * Add a hpp file with colors for print
-*/
-/* TODO
- * make an array and clean this fucking huge main function
-*/
-/* TODO
  * test robotomy and shruberry
 */
 
-int main()
-{ 
-    char ch;
+
+
+
+void testForm(Bureaucrat &b, AForm &f, const std::string& description) {
     std::cout << CLEAR_SCREEN;
     std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
-    std::cout << GREEN "Valid ShrubberyCreationForm execution" RESET << std::endl;
-    std::cout << GREEN "Burucrat with grade 10 (S:145 & E:137)" RESET << std::endl;
+    std::cout << description << std::endl;
+    std::cout << std::endl;
 
+    std::cout << f;
     std::cout << std::endl;
-{
-    Bureaucrat b("Duck n1", 10);
-    ShrubberyCreationForm SCForm("Duck's Target");
-    std::cout << SCForm;
-    std::cout << std::endl;
-    
+
     try {
-        b.signForm(SCForm);
-        b.executeForm(SCForm);
-    }catch(const std::exception& e){
+        b.signForm(f);
+        b.executeForm(f);
+    } catch (const std::exception& e) {
         std::cout << "Error: " << e.what() << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << SCForm;
-}
-std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
-std::cin >> ch;
-std::cout << CLEAR_SCREEN;
-std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
-    std::cout << RED "Invalid ShrubberyCreationForm execution" RESET << std::endl;
-    std::cout << RED "Burucrat with grade 140 (S:145 & E:137)" RESET << std::endl;
-    std::cout << std::endl;
 
+    std::cout << std::endl;
+    std::cout << f;
+    std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
+    std::cin.get();
+}
+
+
+int main() 
 {
-    Bureaucrat b("Duck n2", 140);
-    ShrubberyCreationForm SCForm("Duck2's Target");
-    std::cout << SCForm;
-    std::cout << std::endl;
-
-    
-    try {
-        b.signForm(SCForm);
-        b.executeForm(SCForm);
-    }catch(const std::exception& e){
-        std::cout << "Error: " << e.what() << std::endl;
+    // SHRUBBERRY TEST
+    {
+        Bureaucrat b("Duck n1", 10);
+        ShrubberyCreationForm f("Duck1's Target");
+        testForm(b, f, GREEN "Valid ShrubberyCreationForm execution\nBurucrat with grade 10 (S:145 & E:137)" RESET);
     }
-    std::cout << std::endl;
-    std::cout << SCForm;
-}
-std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
-std::cin >> ch;
-std::cout << CLEAR_SCREEN;
-std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
-    std::cout << RED "Invalid ShrubberyCreationForm execution" RESET << std::endl;
-    std::cout << RED "Burucrat with grade 140 (S:145 & E:137)" RESET << std::endl;
-    std::cout << std::endl;
-
-{
-    Bureaucrat b("Duck n3", 140);
-    ShrubberyCreationForm SCForm("Duck3's Target");
-    std::cout << SCForm;
-    std::cout << std::endl;
-
-    
-    try {
-        b.signForm(SCForm);
-        b.executeForm(SCForm);
-    }catch(const std::exception& e){
-        std::cout << "Error: " << e.what() << std::endl;
+    {
+        Bureaucrat b("Duck n2", 150);
+        ShrubberyCreationForm f("Duck2's Target");
+        testForm(b, f, RED "Invalid ShrubberyCreationForm sign\nBurucrat with grade 150 (S:145 & E:137)" RESET);
     }
-    std::cout << std::endl;
-    std::cout << SCForm;
-}
-std::cout << BLUE "//////////////////////////////////////////" RESET << std::endl;
+    {
+        Bureaucrat b("Duck n3", 140);
+        ShrubberyCreationForm f("Duck3's Target");
+        testForm(b, f, RED "Invalid ShrubberyCreationForm execution\nBurucrat with grade 140 (S:145 & E:137)" RESET);
+    }
+ 
+
     return 0;
 }

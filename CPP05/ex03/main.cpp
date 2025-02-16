@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:25:49 by fang              #+#    #+#             */
-/*   Updated: 2025/02/16 16:33:25 by fang             ###   ########.fr       */
+/*   Updated: 2025/02/16 16:41:48 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,44 +60,50 @@ int main()
         std::cerr << e.what() << '\n';
     }
 
-    try
+    if (f2)
     {
-        std::cout << std::endl;
-        Toni.signForm(*f2);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    try
-    {
-        std::cout << std::endl;
-        Toni.executeForm(*f2);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    try
-    {
-        std::cout << std::endl;
-        Toni.signForm(*f3);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
+        try
+        {
+            std::cout << std::endl;
+            Toni.signForm(*f2);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
+        try
+        {
+            std::cout << std::endl;
+            Toni.executeForm(*f2);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
     }
 
-    try
+    if (f3)
     {
-        Toni.executeForm(*f3);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-        std::cout << "Toni: oops" << std::endl;
+        try
+        {
+            std::cout << std::endl;
+            Toni.signForm(*f3);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        try
+        {
+            Toni.executeForm(*f3);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+            std::cout << "Toni: oops" << std::endl;
+        }
     }
 
     delete f1;

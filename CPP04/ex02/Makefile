@@ -6,7 +6,7 @@
 #    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 11:31:41 by artuda-s          #+#    #+#              #
-#    Updated: 2025/02/11 11:31:55 by artuda-s         ###   ########.fr        #
+#    Updated: 2025/02/26 11:21:59 by artuda-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = AAnimal.cpp Animal.cpp Brain.cpp Dog.cpp Cat.cpp main.cpp
+SRC = AAnimal.cpp Brain.cpp Dog.cpp Cat.cpp main.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

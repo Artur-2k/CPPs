@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 14:16:41 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/26 11:10:11 by artuda-s         ###   ########.fr       */
+/*   Created: 2025/02/10 15:16:27 by artuda-s          #+#    #+#             */
+/*   Updated: 2025/02/10 15:17:32 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public AAnimal
+class WrongCat : public WrongAnimal
 {
-    private:
-        Brain *brain;
-
     public:
-        Cat();
-        Cat(const Cat &other);
-        ~Cat();
-        Cat& operator= (const Cat &other);
+        WrongCat();
+        WrongCat(const WrongCat &other);
+        ~WrongCat();
+        WrongCat& operator= (const WrongCat &other);
 
         void makeSound() const;
-        Brain *getBrain() const;
 };

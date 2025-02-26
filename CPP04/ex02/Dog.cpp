@@ -6,21 +6,21 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:16:41 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/02/12 11:59:58 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:10:04 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : AAnimal()
 {
     std::cout << "Dog default constructor called" << std::endl;
     brain = new Brain();
     type = "Dog";
 }
 
-Dog::Dog(const Dog &other) : Animal()
+Dog::Dog(const Dog &other) : AAnimal()
 {
     std::cout << "Dog copy constructor called" << std::endl;
     brain = new Brain(*other.brain);
@@ -38,7 +38,7 @@ Dog& Dog::operator= (const Dog &other)
     std::cout << "Dog operator= called" << std::endl;
     if (this != &other)
     {
-        Animal::operator=(other); // copies type or wte i dont remember fuck this exercises -.-
+        AAnimal::operator=(other); // copies type or wte i dont remember fuck this exercises -.-
         delete brain;
         brain = new Brain(*other.brain); // this does a deep copy
     }

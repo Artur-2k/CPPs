@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:56:26 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/03/03 22:48:46 by fang             ###   ########.fr       */
+/*   Updated: 2025/03/03 22:54:08 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,10 @@ void ScalarConverter::handleConvert(const std::string &literal)
         d = static_cast<double>(f);
     }
     else
+    {
         std::cerr << "Error: bad convertion" << std::endl;
+        return ;
+    }
     
     // Printable chars
     std::cout << "char: ";

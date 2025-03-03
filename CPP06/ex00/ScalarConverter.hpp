@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:56:26 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/03/03 18:55:19 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/03/03 22:28:13 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ void ScalarConverter::handlePseudo(const std::string &literal)
 
 bool ScalarConverter::isChar(const std::string &literal)
 {
-    if (literal.length() != 1)
-        return false;
-    return true;
+    if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'')
+        return true;
+    return false;
 }
 
 bool ScalarConverter::isInt(const std::string &literal)
@@ -169,7 +169,7 @@ void ScalarConverter::handleConvert(const std::string &literal)
 
     if (isChar(literal))
     {
-        c = literal[0];
+        c = literal[1];
         i = static_cast<int>(c);
         f = static_cast<float>(c);
         d = static_cast<double>(c);

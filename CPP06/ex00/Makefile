@@ -3,22 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
+#    By: fang <fang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/03 11:56:28 by artuda-s          #+#    #+#              #
-#    Updated: 2025/03/03 11:57:06 by artuda-s         ###   ########.fr        #
+#    Updated: 2025/03/03 23:07:18 by fang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Binary name
-NAME = first 
+NAME = convert 
 
 # Compiler
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp ScalarConverter.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

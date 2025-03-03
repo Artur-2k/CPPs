@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:56:26 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/03/03 22:28:13 by fang             ###   ########.fr       */
+/*   Updated: 2025/03/03 22:48:46 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,11 +227,26 @@ void ScalarConverter::handleConvert(const std::string &literal)
     else
         std::cerr << "Error: bad convertion" << std::endl;
     
-    std::cout << "char: " << c << std::endl;
+    // Printable chars
+    std::cout << "char: ";
+    if (isprint(static_cast<int>(c)))
+        std::cout << c << std::endl;
+    else
+        std::cout << "Non displayable" << std::endl;
+    
+    // All other checks have been made by this point
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << std::endl;
-    std::cout << "double: " << d << std::endl;
-                                
+
+    // Just have to check if the number has been truncated when it's 0
+    std::cout << "float: " << f;
+    if (f == static_cast<int>(f))
+        std::cout << ".0";
+    std::cout << "f" << std::endl;
+
+    std::cout << "double: " << d;
+    if (d == static_cast<int>(d))
+        std::cout << ".0";
+    std::cout << std::endl;
 }
 
 

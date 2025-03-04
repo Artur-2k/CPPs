@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
+#    By: fang <fang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 17:29:07 by artuda-s          #+#    #+#              #
-#    Updated: 2025/03/04 17:29:19 by artuda-s         ###   ########.fr        #
+#    Updated: 2025/03/04 22:19:20 by fang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = main.cpp 
+SRC = main.cpp Base.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets

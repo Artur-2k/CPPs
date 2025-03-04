@@ -6,7 +6,7 @@
 /*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 21:34:04 by fang              #+#    #+#             */
-/*   Updated: 2025/03/04 22:17:37 by fang             ###   ########.fr       */
+/*   Updated: 2025/03/04 22:19:47 by fang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ Base* generate(void)
 
 void identify(Base *p)
 {
-    if (dynamic_cast<A*>(p) != nullptr)
+    if (dynamic_cast<A*>(p) != NULL)
         std::cout << "It's a A class" << std::endl;
-    else if (dynamic_cast<B*>(p) != nullptr)
+    else if (dynamic_cast<B*>(p) != NULL)
         std::cout << "It's a B class" << std::endl;
-    else if (dynamic_cast<C*>(p) != nullptr)
+    else if (dynamic_cast<C*>(p) != NULL)
         std::cout << "It's a C class" << std::endl;
     else
         std::cout << "wtf are you doing aah class" << std::endl;

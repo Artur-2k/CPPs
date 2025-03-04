@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:09:55 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/03/04 17:16:40 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:26:29 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int main()
     std::cout << "num: " << d2->num << std::endl;
     
     delete d;
+    d2 = nullptr; // to avoid the dangling pointer (pointer to something that is already gone)
     return 0;
 }

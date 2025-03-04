@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:00:34 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/03/04 17:01:09 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:24:57 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Serializer& Serializer::operator=(const Serializer &other) {(void)other; return 
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
-    return reinterpret_cast<uintptr_t>(ptr);
+    return ptr ? reinterpret_cast<uintptr_t>(ptr) : 0;
 }
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
-    return reinterpret_cast<Data *>(raw);
+    return raw ? reinterpret_cast<Data *>(raw) : nullptr;
 }

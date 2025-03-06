@@ -28,7 +28,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
         ~DiamondTrap();
         
         // Bringing the attack method to DiamondTrap's scope
-        using ScavTrap::attack;;
+        using ScavTrap::attack;
         
         // Getter
         std::string getName() const;

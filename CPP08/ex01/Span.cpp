@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:41:56 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/04/07 12:07:16 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:20:02 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int Span::shortestSpan() const
     return span;
 }
 
-// O(N log N)
+// O(N^2)
 int Span::longestSpan() const
 {
     if (_vec.size() < 2) throw std::runtime_error("Not enough numbers");
@@ -103,3 +103,15 @@ int Span::longestSpan() const
     }
     return span;
 }
+
+int Span::size() const
+{
+    return _vec.size();
+}
+
+void Span::print() const
+{
+    for (size_t i = 0; i < _vec.size(); i++)
+        std::cout << _vec[i] << std::endl;
+}
+

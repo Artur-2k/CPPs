@@ -6,7 +6,7 @@
 /*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:30:25 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/04/07 11:41:06 by artuda-s         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:07:25 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Span
 {
 private:
     unsigned int _N;
-    public:
     std::vector<int> _vec;
+public:
     Span();
     Span(unsigned int N);
     Span(const Span& other);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 21:34:04 by fang              #+#    #+#             */
-/*   Updated: 2025/03/04 22:19:47 by fang             ###   ########.fr       */
+/*   Updated: 2025/05/12 11:32:46 by artuda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 Base* generate(void)
 {
     srand(time(NULL));
-    
     switch ((rand() % 3))
     {
         case 0:
@@ -49,7 +48,7 @@ void identify(Base *p)
     else if (dynamic_cast<C*>(p) != NULL)
         std::cout << "It's a C class" << std::endl;
     else
-        std::cout << "wtf are you doing aah class" << std::endl;
+        std::cerr << "wtf are you doing aah class" << std::endl;
     return ;
 }
 
@@ -57,26 +56,29 @@ void identify(Base &p)
 {
     try
     {
-        dynamic_cast<A&>(p);
+        A& a = dynamic_cast<A&>(p);
+        (void)a;
         std::cout << "It's a A class" << std::endl;
     }
     catch (std::exception &e)
     {
         try
         {
-            dynamic_cast<B&>(p);
+            B& b = dynamic_cast<B&>(p);
+            (void)b;
             std::cout << "It's a B class" << std::endl;
         } 
         catch (std::exception &e)
         {
             try
             {
-                dynamic_cast<C&>(p);
+                C& c = dynamic_cast<C&>(p);
+                (void)c;
                 std::cout << "It's a C class" << std::endl; 
             }
             catch(std::exception &e)
             {
-                std::cout << "wtf are you doing aah class" << std::endl;
+                std::cerr << "wtf are you doing aah class" << std::endl;
             }
         }
     }

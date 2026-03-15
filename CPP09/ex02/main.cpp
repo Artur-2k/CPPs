@@ -16,6 +16,8 @@ std::vector<int> parseInput(int argc, char* argv[])
             throw std::runtime_error("value out of range");
         if (value > INT_MAX)
             throw std::runtime_error("value exceeds INT_MAX");
+        if (value < INT_MIN)
+            throw std::runtime_error("value is below int_min");
 
         result.push_back(static_cast<int>(value));
     }

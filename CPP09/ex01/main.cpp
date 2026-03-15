@@ -1,77 +1,24 @@
-#include <stack>
-#include <stdexcept>
 #include <iostream>
-#include <sstream>
-#include <string>
-#include <cctype>
+#include "RNP.hpp"
 
-// Mover para uma classe de utils
-#include <algorithm>
-bool containsOnlyAllowed(const std::string& str, const std::string allowed)
+int main(int ac, char **av)
 {
-    for (size_t i = 0; i < str.size(); ++i)
+    if (ac != 2)
     {
-        if (allowed.find(str[i]) == std::string::npos)
-            return false;
+        std::cerr << "Example usage: \"./RNP 1 2 +\"" << std::endl;
+        return 1;
     }
-    return true;
-}
 
-int main(int ac, char *av[])
-{
-try
-{
-    // 2 3 +
-    if  (ac != 2) throw std::runtime_error("Error: Bad program arguments");
-
-    std::stack<double> stk;
-    std::stringstream ss(av[1]);
-    std::string token;
-    short n = 0;
-    while(ss >> token)
+    try
     {
-        if (ss.fail()) throw std::runtime_error("Error: internal error on tokenizer");
-
-        if (token.length() != 1) throw std::runtime_error("Error: invalid format");
-
-
-        if (std::isdigit(*token.data()))
-        // add digit
-        {
-            if (n == 2)
-                throw std::runtime_error("Error: too many operands");
-            ++n;
-            double num = convertToDouble(token); // todo pegar do ex00
-            stk.push(num);
-        }
-        else if (token.find_first_of("+-*/") != std::string::npos)
-        {
-            if (n != 2)
-                throw std::runtime_error("Error: not enough operands");
-            
-            double num1 = stk.top();
-            stk.pop();
-            double num2 =  stk.top();
-            stk.pop();
-
-            if (token[0] == '+')
-                stk.push(num1 + num2);
-            else if(token[0] == '-')
-                stk.push(num1 - num2);
-            else if(token[0] == '*')
-                stk.push(num1 * num2);
-            else
-            {
-                if (num2 == 0) throw std::runtime_error("Error: division by zero");
-                stk.push(num1 / num2);
-            }
-        }
-        else throw std::runtime_error("Error: invalid operands/operators");
+        std::string expression(av[1]);
+        double result = RNP::calculate(expression);
+        std::cout << result << std::endl;
     }
-}
-catch(const std::exception& e)
-{
-    std::cerr << e.what() << '\n';
-}
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
     return 0;
 }

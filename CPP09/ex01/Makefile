@@ -1,30 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: artuda-s <artuda-s@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/02 10:16:56 by artuda-s          #+#    #+#              #
-#    Updated: 2025/04/02 14:59:46 by artuda-s         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Binary name
-NAME = first 
+NAME = RPN
 
 # Compiler
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Files
-SRC = main.cpp
+SRC = main.cpp RNP.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
 # Phony targets
 .PHONY: all clean fclean re
 
-# Rules
 all: $(NAME)
 
 $(NAME): $(OBJ) | $(OBJ_DIR)

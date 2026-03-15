@@ -30,16 +30,14 @@ private:
     BitcoinExchange(const BitcoinExchange& other);
     BitcoinExchange& operator= (const BitcoinExchange& other);
     
-    
-    std::map<std::string, double> data;
     static const char *datacsv;
+    std::map<std::string, double> data;
     
-    
-    void _loadData();
     public:
     BitcoinExchange();
     ~BitcoinExchange();
     
+    void _loadData();
     void exchange(std::string inputFilePath) const;
     double getValueOnDate(std::string& date) const;
 };

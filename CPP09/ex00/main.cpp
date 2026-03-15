@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fang <fang@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 16:43:25 by artuda-s          #+#    #+#             */
-/*   Updated: 2025/04/10 22:30:53 by fang             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // btc input.txt
 // yyyy-mm-dd | value
 // 2009-01-02,0
@@ -22,9 +10,10 @@ int main(int argc, char const *argv[])
 {
     try
     {
-        if (argc != 2) throw std::runtime_error("Error: invalid program arguments");
+        if (argc != 2) throw std::runtime_error("Error: invalid number of program arguments");
         BitcoinExchange bex;
-        
+        (void)argc;
+        std::cout << "\n-----------------EXCHANGE START-----------------" << std::endl;
         bex.exchange(argv[1]);
     }
     catch(const std::exception& e)
@@ -32,6 +21,7 @@ int main(int argc, char const *argv[])
         std::cerr << e.what() << '\n';
     }
     
+    std::cout << "\n-----------------END OF PROGRAM-----------------" << std::endl;
 
     return 0;
 }

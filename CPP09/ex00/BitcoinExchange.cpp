@@ -102,6 +102,8 @@ int convertToInt(std::stringstream& ss, const std::string& errorMessage)
     int value;
     ss >> value;
     if (ss.fail()) throw std::runtime_error(errorMessage);
+
+    
     return value;
 }
 
@@ -110,7 +112,6 @@ double convertToDouble(const std::string& str, const std::string& errorMsg)
     char* endPtr;
     errno = 0; // Reset error flag
     double value = std::strtod(str.c_str(), &endPtr);
-
     // Check for conversion errors
     if (errno == ERANGE) {
         throw std::runtime_error(errorMsg + " (out of range)");
@@ -124,41 +125,7 @@ double convertToDouble(const std::string& str, const std::string& errorMsg)
     return value;
 }
 
-/**
- * @brief Loads and parses data from a CSV file into a map for exchange rate lookup.
- * 
- * This function reads a CSV file specified by the `datacsv` member variable, validates its format, 
- * and populates the `data` map with date-to-exchange-rate mappings. The CSV file is expected to 
- * have a header line "date,exchange_rate" and subsequent lines in the format "yyyy-mm-dd,x", 
- * where `yyyy-mm-dd` is the date and `x` is the exchange rate.
- * 
- * @throws std::runtime_error If the file cannot be opened, the header line is invalid, 
- *                            the format of any line is incorrect, or if there are duplicate 
- *                            date entries in the file.
- * 
- * @details
- * - The function validates the date format (yyyy-mm-dd) and ensures the year, month, and day 
- *   are within valid ranges.
- * - The exchange rate value is validated to ensure it is non-negative.
- * - Duplicate date entries in the CSV file are not allowed and will result in an exception.
- * - The parsed data is stored in the `data` map, where the key is the date as a string 
- *   (formatted as "yyyy-mm-dd") and the value is the exchange rate as a double.
- * 
- * @note The function assumes the input file is well-formed and does not handle cases 
- *       where the file contains unexpected characters or malformed lines beyond the 
- *       specified format.
- * 
- * @example
- * Given a CSV file with the following content:
- * ```
- * date,exchange_rate
- * 2009-03-31,0.5
- * 2009-04-01,1.2
- * ```
- * The resulting `data` map will contain:
- * - "2009-03-31" -> 0.5
- * - "2009-04-01" -> 1.2
- */
+
 void BitcoinExchange::_loadData()
 {
     // opening file
@@ -171,9 +138,12 @@ void BitcoinExchange::_loadData()
     std::string line;
     getline(dataFile, line);
     if (line != "date,exchange_rate") throw std::runtime_error("Error on data title. Cant read it");
-    
+    if (dataFile.peek() == EOF) throw std::runtime_error("Error: data file is empty");
+
     while (std::getline(dataFile, line))
     {
+        //219-01-20,0
+
         // yyyy-mm-dd,x 
         if (line.size() < 12)
             throw std::runtime_error("Error: invalid format -> " + line);
@@ -189,27 +159,28 @@ void BitcoinExchange::_loadData()
         if (!isYearValid(year, 2009, 2050)) throw std::runtime_error("Error: invalid date ->" + line);
 
         // popped -
-        ss.get(); 
+        if (ss.get() != '-') throw std::runtime_error("Error: invalid date ->" + line);
         
         // popped 03
         int month = convertToInt(ss, "Error: invalid date ->" + line);
         if (!isMonthValid(month)) throw std::runtime_error("Error: invalid date ->" + line);
         
         // popped -
-        ss.get(); // pop second -
+        if (ss.get() != '-') throw std::runtime_error("Error: invalid date ->" + line);
         
         // popped 31
         int day = convertToInt(ss, "Error: invalid date ->" + line);
         if (!isDayValid(year, month, day)) throw std::runtime_error("Error: invalid date ->" + line);
 
         // popped ,
-        ss.get();
+        if (ss.get() != ',') throw std::runtime_error("Error: invalid date ->" + line);
 
         // popped 0
         std::string valStr = line.substr(11, line.size() - 11);
-        double value = convertToDouble(valStr, "Error: invalid date ->" + line);
+        double value = convertToDouble(valStr, "Error: invalid value ->" + line);
         if (value < 0.0f) throw std::runtime_error("Error: invalid value-> " + line);
 
+        
         // saving the data on the map
         std::ostringstream date;
         date << year << "-" 
@@ -221,30 +192,36 @@ void BitcoinExchange::_loadData()
         // maps cant have two equal keys
         std::pair<std::map<std::string, double>::iterator, bool> result = data.insert(std::make_pair(date.str(), value));
         if (result.second == false)
+        {
             throw std::runtime_error("Error: double date entry conflict");
+        }
     }
     dataFile.close(); // wont be needed anymore
 }
 
 std::string parseDate(std::stringstream& ss, const std::string& line)
 {
+    //2012-01-1x | 2
+
     // popped 2009
     int year = convertToInt(ss, "Error: invalid date ->" + line);
-    if (!isYearValid(year, 2009, 2050)) throw std::runtime_error("Error: invalid date ->" + line);
+    if (!isYearValid(year, 2009, 2050)) throw std::runtime_error("Error: invalid year ->" + line);
 
     // popped -
-    ss.get(); 
+    if (ss.get() != '-') throw std::runtime_error("Error: invalid format ->" + line);
     
     // popped 03
-    int month = convertToInt(ss, "Error: invalid date ->" + line);
-    if (!isMonthValid(month)) throw std::runtime_error("Error: invalid date ->" + line);
+    int month = convertToInt(ss, "Error: invalid format ->" + line);
+    if (!isMonthValid(month)) throw std::runtime_error("Error: invalid format ->" + line);
     
     // popped -
-    ss.get(); // pop second -
+    if (ss.get() != '-') throw std::runtime_error("Error: invalid format ->" + line);
     
     // popped 31
-    int day = convertToInt(ss, "Error: invalid date ->" + line);
-    if (!isDayValid(year, month, day)) throw std::runtime_error("Error: invalid date ->" + line);
+    int day = convertToInt(ss, "Error: invalid format ->" + line);
+    if (!isDayValid(year, month, day)) throw std::runtime_error("Error: invalid format ->" + line);
+
+    if (ss.peek() != ' ') throw std::runtime_error("Error: invalid format ->" + line);
 
     std::ostringstream date;
     date << year << "-" 
@@ -277,23 +254,24 @@ void BitcoinExchange::exchange(std::string inputFilePath) const
     // yyyy-mm-dd | x
     std::string line;
     // check if there is a line and if it the correct header
-    if (!getline(inputFile, line) || line != "date | value") 
+    if (!getline(inputFile, line) ||  line != "date | value"){
+        std::cout<< "Line << " << line << " >>" << std::endl;
         throw std::runtime_error("Error: bad input header");
+    }
         
     while(std::getline(inputFile, line))
     {
         try
         {
-            
             if (line.size() < 14)
                 throw std::runtime_error("Error: invalid format -> " + line);
 
         
             if (line[4] != '-' || line[7] != '-') // date
-                throw std::runtime_error("Error: invalid date format -> " + line);
+                throw std::runtime_error("Error: invalid format -> " + line);
             
             if (line[10] != ' ' || line[11] != '|' || line[12] != ' ') // separator
-                throw std::runtime_error("Error: invalid separator format -> " + line);
+                throw std::runtime_error("Error: invalid format -> " + line);
             
             // 2009-03-31,3     
             std::stringstream ss(line);
@@ -302,11 +280,13 @@ void BitcoinExchange::exchange(std::string inputFilePath) const
             std::string date = parseDate(ss, line);
             
             // popped ,
-            ss.get();
+            if (ss.get() != ' ') throw std::runtime_error("Error: invalid format ->" + line);
+            if (ss.get() != '|') throw std::runtime_error("Error: invalid format ->" + line);
+            if (ss.get() != ' ') throw std::runtime_error("Error: invalid format ->" + line);
             
             // popped 3
             std::string qttStr = line.substr(13, line.size() - 13);
-            double quantity = convertToDouble(qttStr, "Error: invalid date ->" + line);
+            double quantity = convertToDouble(qttStr, "Error: invalid format ->" + line);
             if (quantity < 0.0f || quantity > 1000) throw std::runtime_error("Error: invalid quantity-> " + line);
             
             double value = getValueOnDate(date);
@@ -321,4 +301,3 @@ void BitcoinExchange::exchange(std::string inputFilePath) const
     } 
     inputFile.close();
 }
-
